@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { useState, useEffect } from 'react';
 
 const Navbar = () => {
-    const navItems = ['Home', 'Stories', 'Blogs', 'About Us'];
+    const navItems = ['Home', 'Stories', 'Blogs', 'Our Book', 'About Us'];
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isNavbarVisible, setIsNavbarVisible] = useState(true);
     const [lastScrollY, setLastScrollY] = useState(0);
