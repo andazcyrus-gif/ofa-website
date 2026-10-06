@@ -5,12 +5,9 @@ const defaultImage = '/aboutus/default-profile.jpg'; // Default image path
 
 const director = { name: 'Cyrus Andaz', title: 'Co-Founder & Director of Operations (CEO)', image: '/aboutus/cyrus.png' };
 
-const presidents = [
+const founders = [
     { name: 'Liel Agajan', title: 'Co-President', image: '/aboutus/liel.jpg' },
     { name: 'John Barton', title: 'Co-President', image: '/aboutus/john.jpg' },
-];
-
-const founders = [
     { name: 'Kaicheng Ouyang', title: 'Co-Founder', image: '/aboutus/peter.png' },
 ];
 
@@ -58,25 +55,18 @@ export default function AboutUs() {
                 </div>
             </section>
 
-            {/* Presidents */}
-            <section className="mb-16">
-                <h2 className="text-3xl font-semibold text-center mb-8">
-                    <span className="text-blue-500">Presidents</span>
-                </h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-2xl mx-auto">
-                    {presidents.map((person) => (
-                        <PersonCard key={person.name} person={person} />
-                    ))}
-                </div>
-            </section>
-
             {/* Founders */}
             <section className="">
                 <h2 className="text-3xl font-semibold text-center mb-8">
                     <span className="text-blue-500">Founders</span>
                 </h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-2xl mx-auto mb-8">
+                    {founders.slice(0, 2).map((person) => (
+                        <PersonCard key={person.name} person={person} />
+                    ))}
+                </div>
                 <div className="max-w-xs mx-auto">
-                    {founders.map((person) => (
+                    {founders.slice(2).map((person) => (
                         <PersonCard key={person.name} person={person} />
                     ))}
                 </div>
