@@ -4,7 +4,13 @@ import Image from 'next/image';
 import { useState, useEffect } from 'react';
 
 const Navbar = () => {
-    const navItems = ['Home', 'Stories', 'Blogs', 'Our Book', 'Partnerships', 'About Us'];
+    const navItems = [
+        { label: 'Home', href: '/' },
+        { label: 'Stories & Blogs', href: '/stories' },
+        { label: 'Our Book', href: '/ourbook' },
+        { label: 'Partnerships', href: '/partnerships' },
+        { label: 'About Us', href: '/aboutus' },
+    ];
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isNavbarVisible, setIsNavbarVisible] = useState(true);
     const [lastScrollY, setLastScrollY] = useState(0);
@@ -66,12 +72,12 @@ const Navbar = () => {
                         <div className="hidden xl:flex items-center">
                             <ul className="flex space-x-6">
                                 {navItems.map((item) => (
-                                    <li key={item}>
+                                    <li key={item.href}>
                                         <Link
-                                            href={item === 'Home' ? '/' : `/${item.toLowerCase().replaceAll(" ", "")}`}
+                                            href={item.href}
                                             className="inline-block p-2 px-4 font-semibold text-xl text-gray-800 hover:text-green-600"
                                         >
-                                            <span>{item}</span>
+                                            <span>{item.label}</span>
                                         </Link>
                                     </li>
                                 ))}
@@ -96,11 +102,11 @@ const Navbar = () => {
                             <div className="absolute top-full left-0 w-full bg-white shadow-md py-2 flex flex-col items-center z-30">
                                 {navItems.map((item) => (
                                     <Link
-                                        key={item}
-                                        href={item === 'Home' ? '/' : `/${item.toLowerCase().replaceAll(" ", "")}`}
+                                        key={item.href}
+                                        href={item.href}
                                         className="block py-2 px-4 w-full text-center text-gray-800 hover:bg-gray-100 hover:text-green-600"
                                     >
-                                        {item}
+                                        {item.label}
                                     </Link>
                                 ))}
                             </div>
