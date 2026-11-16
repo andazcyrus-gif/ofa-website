@@ -6,7 +6,6 @@ import { useState, useEffect } from 'react';
 const Navbar = () => {
     const navItems = [
         { label: 'Home', href: '/' },
-        { label: 'Stories & Blogs', href: '/stories' },
         { label: 'Our Book', href: '/ourbook' },
         { label: 'Partnerships', href: '/partnerships' },
         { label: 'About Us', href: '/aboutus' },
