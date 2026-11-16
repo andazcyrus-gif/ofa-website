@@ -132,14 +132,6 @@ const HowWeHelp = () => {
                             @onefourall2024
                         </a>
                     </p>
-                    <motion.a
-                        href="/stories#blogs"
-                        className="inline-block bg-green-600 text-white px-10 py-4 rounded-xl font-semibold text-lg hover:bg-red-700 transition-all shadow-lg hover:shadow-2xl transform"
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                    >
-                        Explore All Blogs
-                    </motion.a>
                 </motion.div>
             </div>
         </section>
