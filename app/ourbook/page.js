@@ -1,11 +1,10 @@
 import Image from "next/image";
 import { FaInstagram } from "react-icons/fa";
-import LaunchSignup from "@/components/book/LaunchSignup";
 
 export const metadata = {
     title: "The Lives We Live by Cyrus Andaz | One for All Foundation",
     description:
-        "The Lives We Live: Four People, Two Years, and Everything I Never Thought to Ask. True stories from four elders, retold by Cyrus Andaz. Proceeds go to the Alzheimer's Fund. Join the launch list.",
+        "The Lives We Live: Four People, Two Years, and Everything I Never Thought to Ask. True stories from four elders, retold by Cyrus Andaz. Proceeds go to the Alzheimer's Fund. Out now on Amazon, Bookshop.org, and Young Inklings.",
 };
 
 const people = [
@@ -13,6 +12,15 @@ const people = [
     { who: "My father", note: "whose story I thought I knew, until I finally asked." },
     { who: "A chemistry professor", note: "who chose to stay anonymous, and let the stories speak for him." },
     { who: "A Vermont skiing legend & architect", note: "who carved trails and buildings into the mountains he loved." },
+];
+
+const stores = [
+    { name: "Amazon", href: "https://www.amazon.com/dp/1956380612" },
+    {
+        name: "Bookshop.org",
+        href: "https://bookshop.org/p/books/the-lives-we-live-four-people-two-years-and-everything-i-never-thought-to-ask/7013d5bb6057d365?ean=9781956380613",
+    },
+    { name: "Young Inklings", href: "https://www.younginklings.org/the-lives-we-live/" },
 ];
 
 const Leaf = () => (
@@ -54,7 +62,7 @@ export default function OurBook() {
                     </div>
                     <div className="text-center md:text-left">
                         <p className="uppercase tracking-[0.3em] text-xs font-semibold text-[#4f7a35] mb-4">
-                            A One4All book · Coming soon
+                            A One4All book · Out now
                         </p>
                         <h1 className="text-5xl md:text-6xl text-[#5c2d12] leading-tight mb-4">The Lives We Live</h1>
                         <p className="text-xl md:text-2xl italic text-[#6b4a2f] mb-6">
@@ -63,10 +71,10 @@ export default function OurBook() {
                         <p className="text-lg text-[#5c4a3a] mb-8">by Cyrus Andaz</p>
                         <div className="flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
                             <a
-                                href="#signup"
+                                href="#buy"
                                 className="inline-block rounded-lg bg-[#5c2d12] hover:bg-[#46220d] text-[#f4ecd8] font-semibold px-8 py-3 text-lg transition shadow-md font-sans"
                             >
-                                Join the launch list
+                                Get your copy
                             </a>
                             <a
                                 href="#about"
@@ -131,13 +139,26 @@ export default function OurBook() {
                 </p>
             </Section>
 
-            {/* How to get it */}
-            <div className="bg-[#e4dbc3]">
-                <Section eyebrow="How to get it" title="Launching soon">
+            {/* Where to buy */}
+            <div id="buy" className="bg-[#e4dbc3] scroll-mt-28">
+                <Section eyebrow="Get your copy" title="Out now">
                     <p>
-                        The book isn&apos;t out yet. Join the launch list below and you&apos;ll be the first to know when
-                        it&apos;s available, with details on where to buy a copy.
+                        <span className="italic">The Lives We Live</span> is available now. Pick up a copy from any of
+                        these stores, and every purchase supports the Alzheimer&apos;s Fund.
                     </p>
+                    <div className="flex flex-col sm:flex-row gap-3 justify-center pt-2 font-sans">
+                        {stores.map((s) => (
+                            <a
+                                key={s.name}
+                                href={s.href}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-block rounded-lg bg-[#5c2d12] hover:bg-[#46220d] text-[#f4ecd8] font-semibold px-8 py-3 text-lg transition shadow-md"
+                            >
+                                Buy on {s.name}
+                            </a>
+                        ))}
+                    </div>
                     <a
                         href="https://www.instagram.com/onefourall2024"
                         target="_blank"
@@ -149,20 +170,6 @@ export default function OurBook() {
                 </Section>
             </div>
 
-            {/* Email signup */}
-            <section id="signup" className="scroll-mt-28 px-6 py-20 bg-gradient-to-b from-[#efe7d3] to-[#cdd3a6]">
-                <div className="max-w-xl mx-auto bg-[#f7f1e1] border border-[#d9cba8] rounded-2xl shadow-xl p-8 md:p-10">
-                    <div className="text-center mb-8">
-                        <h2 className="text-3xl md:text-4xl text-[#5c2d12] mb-3">Be the first to read it</h2>
-                        <p className="text-[#5c4a3a]">
-                            Get an email the day <span className="italic">The Lives We Live</span> launches.
-                        </p>
-                    </div>
-                    <div className="font-sans">
-                        <LaunchSignup />
-                    </div>
-                </div>
-            </section>
         </div>
     );
 }
